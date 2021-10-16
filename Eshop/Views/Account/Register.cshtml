@@ -1,0 +1,85 @@
+﻿@model Eshop.ViewModels.RegistrationViewModel
+@using Eshop.Models.Enum
+
+<div class="container">
+  <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <h4 class="card-title mt-2">Sign up</h4>
+                </header>
+                <article class="card-body">
+                    <form method="post" asp-controller="Account" asp-action="Register">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="Name">F.I.O</label>
+                            <input type="text" asp-for="Name" class="form-control" placeholder="">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="INN">INN</label>
+                            <input type="text" asp-for="INN" class="form-control" placeholder="">
+                            <span class="text-danger" asp-validation-for="INN"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email">Email address</label>
+                            <input type="email" asp-for="Email" class="form-control" placeholder="">
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Phone">Mobile</label>
+                            <input type="text" asp-for="Phone" class="form-control" placeholder="">
+                            <span class="text-danger" asp-validation-for="Phone"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" asp-for="Type" type="radio" name="type" value="Fiz">
+                                <span class="form-check-label"> Fiz </span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" asp-for="Type" type="radio" name="type" value="Yur">
+                                <span class="form-check-label"> Yur</span>
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="Adress">Adress</label>
+                                <input type="text" asp-for="Adress" class="form-control">
+                                <span class="text-danger" asp-validation-for="Adress"></span>
+                            </div> 
+                            <div class="form-group col-md-6">
+                                <label asp-for="Region"></label><br />
+                                <select asp-for="Region" class="form-control"  asp-items="new SelectList(ViewBag.regions)">
+                                   <option value="">Choose your region</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="Region" />
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password">Password</label>
+                            <input class="form-control" asp-for="Password" type="password">
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                            <span class="text-danger" asp-validation-for="Region" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PasswordConfirm">Confirm Password</label>
+                            <input class="form-control" asp-for="PasswordConfirm" type="password">
+                            <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+                        </div>
+                        <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>
+                    </form>
+                </article> 
+                <div class="border-top card-body text-center">Have an account? <a asp-action="Login">Log In</a></div>
+            </div> 
+        </div>
+
+    </div> 
+
+
+</div>
+
+

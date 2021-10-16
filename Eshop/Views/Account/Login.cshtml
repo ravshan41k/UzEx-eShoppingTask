@@ -1,0 +1,24 @@
+﻿@model Eshop.ViewModels.LoginViewModel
+
+<form method="post" asp-controller="Account" asp-action="Login"
+      asp-route-returnUrl="@Model.ReturnUrl">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="INN"></label><br />
+        <input asp-for="INN" />
+        <span class="text-danger" ValidationExpression="^[0-9]{8,10}$" asp-validation-for="INN"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label><br />
+        <input asp-for="RememberMe" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-sm btn-primary">Kirish</button>
+        <button asp-controller="Account" asp-action="Register" class="btn btn-sm btn-primary">Ro'yhatdan o'tish</button>
+    </div>
+</form>

@@ -1,8 +1,54 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Eshop.Models.Product>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card m-3">
+                <div class="card-body text-center">
+
+                    <h5>@item.Name</h5>
+
+
+                    <hr>
+                    <h6 class="mb-3">
+                       Count: <span class="text-danger mr-1">@item.Count</span>
+                    </h6>
+                    <h6 class="mb-3">
+                        Price:
+                        <span class="text-danger mr-1">$@item.Price</span>
+                        <span class="text-grey"><s>$700</s></span>
+                    </h6>
+
+                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
+                        <i class="fas fa-shopping-cart pr-2"></i>Add to cart
+                    </button>
+                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
+                        <i class="fas fa-info-circle pr-2"></i>Details
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        }
+    </div>
 </div>
+
+
+@section scripts{
+    <script type="text/javascript">
+
+
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
